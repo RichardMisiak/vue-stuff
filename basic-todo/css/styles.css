@@ -1,23 +1,29 @@
-html {
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(30, 30, 30);
-    font-size: 12pt
-}
-
 :root {
   --main-bg-color: rgb(44, 156, 156);
   --main-text-color: white;
+  --main-font-size: 16pt;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(30, 30, 30);
+    font-size: var(--main-font-size);
 }
 
 div,
 input{
-    font-size: 12pt
+    font-size: var(--main-font-size);
 }
 
 body {
-    min-width: 700px;
     width: 70%;
     margin: auto;
+}
+
+@media (min-width:1025px){
+    body{
+        max-width: 700px;
+    }
 }
 
 input:focus,
@@ -30,27 +36,33 @@ button:focus {
 .item{
     margin-top: 8px;
     margin-bottom: 8px;
-    max-width: 200px;
     background-color: var(--main-bg-color);
     color: var(--main-text-color);
     font-weight: 600;
     padding: 8px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
+.input-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
 .input {
+    flex: 1;
+    width: 100%;
     margin-top: 8px;
     margin-bottom: 8px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom-width: 1px;
+    border-width: 0px 0px 1px 0px;
     border-bottom-color: rgb(200, 200, 200);
 }
 
 .input:focus {
-    border-bottom-width: 2px;
+    border-bottom-width: 3px;
     border-bottom-color: var(--main-bg-color);
 }
 

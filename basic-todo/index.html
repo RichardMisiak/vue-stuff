@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>This is a test</title>
+    <title>Vue Todo List</title>
     <meta name="description" content="Test app">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Richard Misiak">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
@@ -21,8 +22,10 @@
             <div>{{item.text}}</div>
             <i v-on:click="remove(index)" class="fas fa-times clickable"></i>
         </div>
-        <input class="input" v-model="input" v-on:keyup.enter="submit()">
-        <i v-if="isInputValid()" class="fas fa-plus clickable btn-add" v-on:click="submit()"></i>
+        <div class="input-container">
+            <input class="input" v-model="input" v-on:keyup.enter="submit()">
+            <span v-if="isInputValid()" class="fas fa-plus clickable btn-add" v-on:click="submit()"></span>
+        </div>
     </div>
 
     <script src="js/app.js"></script>
