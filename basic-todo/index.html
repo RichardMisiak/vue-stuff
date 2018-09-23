@@ -14,18 +14,11 @@
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <div id="app">
-        <h3>
-            You have {{items.length}} {{items.length === 1 ? 'item' : 'items'}}
-        </h3>
-        <div class="item" v-for="(item, index) in items">
-            <div>{{item.text}}</div>
-            <i v-on:click="remove(index)" class="fas fa-times clickable"></i>
-        </div>
-        <div class="input-container">
-            <input class="input" v-model="input" v-on:keyup.enter="submit()">
-            <span v-if="isInputValid()" class="fas fa-plus clickable btn-add" v-on:click="submit()"></span>
-        </div>
+        <todo-title v-bind:count="items.length"></todo-title>
+        <todo-item v-for="(item, index) in items" v-bind:item="item" v-bind:key="index" v-on:remove="remove(index)"></todo-item>
+        <todo-input v-on:submit="add($event)"></todo-input>
     </div>
 
     <script src="js/app.js"></script>
